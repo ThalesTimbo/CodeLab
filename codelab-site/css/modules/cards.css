@@ -1,0 +1,88 @@
+/* Cards Module (Services) */
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.card {
+    background: var(--color-bg-alt);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glassmorphism/Glow on Hover */
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(157, 0, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-main);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.card__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-main);
+}
+
+.card__description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+/* About Section Specifics */
+.about__container {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.about__item-title {
+    color: var(--color-accent-cyan);
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .about__container {
+        padding: var(--spacing-md);
+    }
+}

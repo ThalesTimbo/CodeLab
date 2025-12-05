@@ -1,0 +1,155 @@
+/* Header Module */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: var(--transition);
+    background: transparent;
+}
+
+/* Glassmorphism Effect on Scroll */
+.header.scroll-header {
+    background: rgba(11, 11, 21, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    height: var(--header-height);
+}
+
+.header__container {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+}
+
+.logo .dot {
+    color: var(--color-accent-cyan);
+}
+
+.nav__list {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav__link {
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav__link:hover,
+.nav__link.active-link {
+    color: var(--color-text-main);
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--gradient-main);
+    transition: width 0.3s;
+}
+
+.nav__link:hover::after,
+.nav__link.active-link::after {
+    width: 100%;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.nav__toggle,
+.nav__close {
+    display: none;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: var(--color-bg-alt);
+        width: 80%;
+        height: 100%;
+        padding: var(--spacing-lg) var(--spacing-md);
+        transition: var(--transition);
+        z-index: 100;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav.show-menu {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .nav__link {
+        font-size: 1.25rem;
+    }
+
+    .nav__toggle {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--color-text-main);
+    }
+
+    .nav__close {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--color-text-muted);
+    }
+
+    /* Hamburger Icon simulation with CSS */
+    .hamburger {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: currentColor;
+        position: relative;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        left: 0;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        bottom: -8px;
+    }
+}

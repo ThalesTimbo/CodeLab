@@ -1,0 +1,13 @@
+/* =========================================
+   MAIN STYLESHEET
+   ========================================= */
+
+/* 1. Variables & Reset */
+@import 'variables.css';
+
+/* 2. Modules */
+@import 'modules/global.css';
+@import 'modules/header.css';
+@import 'modules/hero.css';
+@import 'modules/cards.css';
+@import 'modules/footer.css';
